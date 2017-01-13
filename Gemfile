@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
-ruby '2.2.2'
+gem 'rails'
+#ruby 
 
-gem 'active_model_serializers', '~> 0.8.0'
+gem 'active_model_serializers'
 gem 'acts_as_list'
 gem 'bcrypt'
 gem 'ejs'
@@ -12,12 +12,12 @@ gem 'jquery-ui-rails'
 gem 'less-rails'
 gem 'pg'
 gem 'therubyracer'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'thin'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 group :development do
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
 
 group :development, :test do
@@ -34,5 +34,5 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', '~> 2.8'
+  gem 'shoulda-matchers'
 end
