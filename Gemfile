@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 #ruby 
 gem 'pg'
-#gem 'sprockets'
+gem 'sprockets', '3.6.3'
 gem 'active_model_serializers'
 gem 'acts_as_list'
 gem 'bcrypt'
