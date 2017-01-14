@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -22,9 +21,8 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["board_id"], name: "index_board_activities_on_board_id", using: :btree
   end
-
-  add_index "board_activities", ["board_id"], name: "index_board_activities_on_board_id", using: :btree
 
   create_table "board_members", force: :cascade do |t|
     t.integer  "board_id",                   null: false
@@ -32,10 +30,9 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.boolean  "admin",      default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["board_id", "member_id"], name: "index_board_members_on_board_id_and_member_id", unique: true, using: :btree
+    t.index ["board_id"], name: "index_board_members_on_board_id", using: :btree
   end
-
-  add_index "board_members", ["board_id", "member_id"], name: "index_board_members_on_board_id_and_member_id", unique: true, using: :btree
-  add_index "board_members", ["board_id"], name: "index_board_members_on_board_id", using: :btree
 
   create_table "boards", force: :cascade do |t|
     t.string   "name"
@@ -43,9 +40,8 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.boolean  "open",        default: true, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["open"], name: "index_boards_on_open", using: :btree
   end
-
-  add_index "boards", ["open"], name: "index_boards_on_open", using: :btree
 
   create_table "card_activities", force: :cascade do |t|
     t.integer  "member_id",   null: false
@@ -53,9 +49,8 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["card_id"], name: "index_card_activities_on_card_id", using: :btree
   end
-
-  add_index "card_activities", ["card_id"], name: "index_card_activities_on_card_id", using: :btree
 
   create_table "card_comments", force: :cascade do |t|
     t.integer  "card_id",      null: false
@@ -63,19 +58,17 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["card_id"], name: "index_card_comments_on_card_id", using: :btree
   end
-
-  add_index "card_comments", ["card_id"], name: "index_card_comments_on_card_id", using: :btree
 
   create_table "card_members", force: :cascade do |t|
     t.integer  "card_id",    null: false
     t.integer  "member_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.index ["card_id", "member_id"], name: "index_card_members_on_card_id_and_member_id", unique: true, using: :btree
+    t.index ["card_id"], name: "index_card_members_on_card_id", using: :btree
   end
-
-  add_index "card_members", ["card_id", "member_id"], name: "index_card_members_on_card_id_and_member_id", unique: true, using: :btree
-  add_index "card_members", ["card_id"], name: "index_card_members_on_card_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.integer  "list_id",                    null: false
@@ -87,9 +80,8 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.datetime "updated_at"
     t.integer  "position"
     t.integer  "assignee_id"
+    t.index ["list_id"], name: "index_cards_on_list_id", using: :btree
   end
-
-  add_index "cards", ["list_id"], name: "index_cards_on_list_id", using: :btree
 
   create_table "lists", force: :cascade do |t|
     t.integer  "board_id",                  null: false
@@ -98,9 +90,8 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.index ["board_id"], name: "index_lists_on_board_id", using: :btree
   end
-
-  add_index "lists", ["board_id"], name: "index_lists_on_board_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
@@ -111,8 +102,7 @@ ActiveRecord::Schema.define(version: 20151022040249) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
+    t.index ["session_key"], name: "index_users_on_session_key", using: :btree
   end
-
-  add_index "users", ["session_key"], name: "index_users_on_session_key", using: :btree
 
 end

@@ -34,7 +34,7 @@ RSpec.describe User, type: :model do
     it {
       is_expected.to (
         validate_length_of(:password)
-          .is_at_least(8)
+          .is_at_least(3)
           .is_at_most(64)
       )
     }
