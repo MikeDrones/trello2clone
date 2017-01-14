@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 #ruby 
-
+gem 'sprockets', '3.6.3'
 gem 'active_model_serializers'
 gem 'acts_as_list'
 gem 'bcrypt'
@@ -12,7 +12,7 @@ gem 'jquery-ui-rails'
 gem 'less-rails'
 gem 'pg'
 gem 'therubyracer'
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0', '>= 5.0.6'
 gem 'thin'
 gem 'uglifier'
 
